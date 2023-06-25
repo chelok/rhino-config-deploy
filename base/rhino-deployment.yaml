@@ -35,10 +35,3 @@ spec:
           # Puerto que queremos exponer
           ports:
             - containerPort: 80
-            - containerPort: 443
-      imagePullSecrets:
-      - name: regcred
-      volumes:
-        - name: rhino
-          secret:
-            secretName: rhino-secret
