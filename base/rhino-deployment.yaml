@@ -19,11 +19,6 @@ spec:
         - name: rhino
           image: 'southamerica-east1-docker.pkg.dev/diesel-talon-387022/rhino/rhino:latest'
           imagePullPolicy: Always
-          # variables de entorno
-          volumeMounts:
-            - name: rhino
-              mountPath: "/etc/rhino"
-              readOnly: true
           resources:
             #1000Mi es un core
             requests:
