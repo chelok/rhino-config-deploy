@@ -1,0 +1,10 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rhino-ingress
+spec:
+  defaultBackend:
+    service:
+      name: rhino-deployment
+      port:
+        number: 80

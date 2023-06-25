@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rhino-deployment
+spec:
+  template:
+    spec:
+      containers:
+        - name: rhino
+          resources:
+            requests:
+              memory: "500Mi"
+              cpu: "300m"
+            limits:
+              memory: "1048Mi"
+              cpu: "600m"

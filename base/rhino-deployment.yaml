@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rhino-deployment
+  labels:
+    app: rhino
+spec:
+  # cantidad de POD que queremos
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rhino
+  template:
+    metadata:
+      labels:
+        app: rhino
+    spec:
+      containers:
+        - name: rhino
+          image: 'southamerica-east1-docker.pkg.dev/diesel-talon-387022/rhino/rhino:latest'
+          imagePullPolicy: Always
+          # variables de entorno
+          volumeMounts:
+            - name: rhino
+              mountPath: "/etc/rhino"
+              readOnly: true
+          resources:
+            #1000Mi es un core
+            requests:
+              memory: "64Mi"
+              cpu: "100m" #milicore 
+            limits:
+              memory: "128Mi" #128 Megas de ram
+              cpu: "300m" #milicore
+          # Puerto que queremos exponer
+          ports:
+            - containerPort: 80
+            - containerPort: 443
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+        - name: rhino
+          secret:
+            secretName: rhino-secret
