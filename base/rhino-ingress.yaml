@@ -2,9 +2,19 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: rhino-ingress
+annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   defaultBackend:
     service:
       name: rhino-service
       port:
-        number: 80
+        number: 443
+  tls:
+  - hosts:
+    - api-dev.rhinox.io
+    secretName: secret-tls
+  rules:
+  - host: api-dev.rhinox.io

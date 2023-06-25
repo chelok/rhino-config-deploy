@@ -13,3 +13,7 @@ patches:
     target:
       kind: Deployment
       name: rhino-deployment
+  - path: secret-patch.yaml
+    target:
+      kind: Secret
+      name: rhino-secret
