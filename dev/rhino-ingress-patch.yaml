@@ -4,6 +4,10 @@ metadata:
   name: rhino-ingress
   namespace: dev
 spec:
+  tls:
+    - hosts:
+        - api-dev.rhinox.io
+      secretName: rhino-certificado
   rules:
     - http:
         paths:
