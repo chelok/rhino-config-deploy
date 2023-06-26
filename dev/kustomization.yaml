@@ -11,13 +11,16 @@ resources:
 patches:
   - path: rhino-deployment-patch.yaml
     target:
-      kind: Deployment
-      name: rhino-deployment
+        kind: Deployment
+        name: rhino-deployment
+        namespace: dev
   - path: rhino-ingress-patch.yaml
     target:
-      kind: Ingress
-      name: rhino-ingress
+        kind: Ingress
+        name: rhino-ingress
+        namespace: dev
   - path: rhino-secret-patch.yaml
     target:
-      kind: Secret
-      name: rhino-certificado
+        kind: Secret
+        name: rhino-secret
+        namespace: dev
