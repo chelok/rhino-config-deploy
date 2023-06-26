@@ -13,3 +13,7 @@ patches:
     target:
       kind: Deployment
       name: rhino-deployment
+  - path: rhino-ingress-patch.yaml
+    target:
+      kind: Ingress
+      name: rhino-ingress
