@@ -2,18 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: rhino-ingress
-  annotations:
-    kubernetes.io/ingress.global-static-ip-name: api-dev.rhinox.io
-    networking.gke.io/managed-certificates: managed-cert
-    kubernetes.io/ingress.class: "gce"
 spec:
   defaultBackend:
     service:
       name: rhino-service
       port:
         number: 80
-  tls:
-  - hosts:
-    - api-dev.rhinox.io
   rules:
   - host: api-dev.rhinox.io
