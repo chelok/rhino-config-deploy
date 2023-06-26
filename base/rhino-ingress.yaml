@@ -15,6 +15,5 @@ spec:
   tls:
   - hosts:
     - api-dev.rhinox.io
-    secretName: secret-tls
   rules:
   - host: api-dev.rhinox.io
