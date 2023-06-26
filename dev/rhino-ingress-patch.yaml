@@ -4,15 +4,17 @@ metadata:
   name: rhino-ingress
   namespace: dev
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
         - api-dev.rhinox.io
       secretName: rhino-certificado
   rules:
+    - host: "api-dev.rhinox.io"
     - http:
         paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
           backend:
             service:
               name: rhino-service
