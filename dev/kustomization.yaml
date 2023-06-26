@@ -17,3 +17,7 @@ patches:
     target:
       kind: Ingress
       name: rhino-ingress
+  - path: rhino-secret-patch.yaml
+    target:
+      kind: Secret
+      name: rhino-certificado
