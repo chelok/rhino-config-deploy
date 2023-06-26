@@ -3,8 +3,13 @@ kind: Ingress
 metadata:
   name: rhino-ingress
 spec:
-  defaultBackend:
-    service:
-      name: rhino-service
-      port:
-        number: 80
+  rules:
+    - http:
+        paths:
+        - path: /
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: rhino-service
+              port:
+                number: 80
