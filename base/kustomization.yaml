@@ -5,3 +5,4 @@ resources:
   - rhino-service.yaml
   - rhino-ingress.yaml
   - rhino-hpa.yaml
+  - rhino-secret.yaml
