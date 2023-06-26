@@ -10,6 +10,6 @@ spec:
           pathType: ImplementationSpecific
           backend:
             service:
-              name: rhino-service
+              name: dev-rhino-service
               port:
                 number: 80
