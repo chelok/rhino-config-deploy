@@ -1,15 +1,32 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: prod
-commonLabels:
-  env: prod
 namePrefix: prod-
-bases:
-  - ../base
 resources:
-  - namespace.yaml
+- namespace.yaml
+- ../base
 patches:
-  - path: rhino-deployment-patch.yaml
-    target:
-      kind: Deployment
-      name: rhino-deployment
+- path: rhino-deployment-patch.yaml
+  target:
+    kind: Deployment
+    name: rhino-deployment
+- path: rhino-ingress-patch.yaml
+  target:
+    kind: Ingress
+    name: rhino-ingress
+- path: rhino-service-patch.yaml
+  target:
+    kind: Service
+    name: rhino-service
+- path: managed-cert-patch.yaml
+  target:
+    kind: ManagedCertificate
+    name: rhino-certificado
+- path: rhino-hpa-patch.yaml
+  target:
+    kind: HorizontalPodAutoscaler
+    name: rhino-hpa
+labels:
+- includeSelectors: true
+  pairs:
+    env: prod

@@ -2,16 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rhino-deployment
+  namespace: prod
+  labels:
+    app: rhino
 spec:
-  replicas: 3
+  replicas: 1
   template:
     spec:
       containers:
         - name: rhino
           resources:
             requests:
-              memory: "500Mi"
+              memory: "120Mi"
               cpu: "300m"
             limits:
-              memory: "1048Mi"
-              cpu: "600m"
+              memory: "1200Mi"
+              cpu: "700m"

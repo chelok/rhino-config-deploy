@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: test-ingress
-  namespace: rhino-test
+  name: rhino-ingress
+  namespace: prod
   annotations:
     ingress.gcp.kubernetes.io/pre-shared-cert: rhino-certificado-prod
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -17,11 +17,11 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: rhino-deployment-service
+            name: prod-rhino-deployment-service
             port:
               number: 80
   defaultBackend:
     service:
-      name: rhino-deployment-service
+      name: prod-rhino-deployment-service
       port:
         number: 80
