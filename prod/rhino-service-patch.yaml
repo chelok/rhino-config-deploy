@@ -2,7 +2,7 @@ apiVersion: "v1"
 kind: "Service"
 metadata:
   name: "rhino-deployment-service"
-  namespace: "rhino-test"
+  namespace: "prod"
   labels:
     app: "rhino"
 spec:

@@ -1,26 +1,28 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: dev
-commonLabels:
-  env: dev
 namePrefix: dev-
-bases:
-  - ../base
 resources:
-  - namespace.yaml
+- namespace.yaml
+- ../base
 patches:
-  - path: rhino-deployment-patch.yaml
-    target:
-        kind: Deployment
-        name: rhino-deployment
-        namespace: dev
-  - path: rhino-ingress-patch.yaml
-    target:
-        kind: Ingress
-        name: rhino-ingress
-        namespace: dev
-  - path: rhino-secret-patch.yaml
-    target:
-        kind: Secret
-        name: rhino-secret
-        namespace: dev
+- path: rhino-deployment-patch.yaml
+  target:
+    kind: Deployment
+    name: rhino-deployment
+- path: rhino-ingress-patch.yaml
+  target:
+    kind: Ingress
+    name: rhino-ingress
+- path: rhino-service-patch.yaml
+  target:
+    kind: Service
+    name: rhino-service
+- path: managed-cert-patch.yaml
+  target:
+    kind: ManagedCertificate
+    name: rhino-certificado
+labels:
+- includeSelectors: true
+  pairs:
+    env: dev

@@ -2,7 +2,8 @@ apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
   name: rhino-certificado
+  namespace: dev
 spec:
   domains:
-    - api.rhinox.io
-    - www.api.rhinox.io
+    - api-dev.rhinox.io
+    - www.api-dev.rhinox.io

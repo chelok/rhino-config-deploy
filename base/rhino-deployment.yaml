@@ -2,10 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rhino-deployment
+  namespace: rhino-test
   labels:
     app: rhino
 spec:
-  # cantidad de POD que queremos
   replicas: 2
   selector:
     matchLabels:
@@ -17,16 +17,14 @@ spec:
     spec:
       containers:
         - name: rhino
-          image: 'southamerica-east1-docker.pkg.dev/diesel-talon-387022/rhino/rhino:latest'
+          image: southamerica-east1-docker.pkg.dev/diesel-talon-387022/rhino/rhino:1eb4f03497e932b21b0fdb3f36e26657e0b7cd93
           imagePullPolicy: Always
           resources:
-            #1000Mi es un core
             requests:
               memory: "64Mi"
-              cpu: "100m" #milicore 
+              cpu: "100m"
             limits:
-              memory: "128Mi" #128 Megas de ram
-              cpu: "300m" #milicore
-          # Puerto que queremos exponer
+              memory: "128Mi"
+              cpu: "300m"
           ports:
             - containerPort: 80

@@ -3,14 +3,17 @@ kind: Deployment
 metadata:
   name: rhino-deployment
   namespace: dev
+  labels:
+    app: rhino
 spec:
+  replicas: 1
   template:
     spec:
       containers:
         - name: rhino
           resources:
             requests:
-              memory: "64Mi"
+              memory: "80Mi"
               cpu: "100m"
             limits:
               memory: "128Mi"
