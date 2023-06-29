@@ -11,6 +11,8 @@ spec:
     spec:
       containers:
         - name: rhino
+          image: southamerica-east1-docker.pkg.dev/diesel-talon-387022/rhino-prod/rhino:1eb4f03497e932b21b0fdb3f36e26657e0b7cd93
+          imagePullPolicy: Always
           resources:
             requests:
               memory: "120Mi"
@@ -18,3 +20,5 @@ spec:
             limits:
               memory: "1200Mi"
               cpu: "700m"
+          ports:
+            - containerPort: 80
