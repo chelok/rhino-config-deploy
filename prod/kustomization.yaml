@@ -18,10 +18,6 @@ patches:
   target:
     kind: Service
     name: rhino-service
-- path: managed-cert-patch.yaml
-  target:
-    kind: ManagedCertificate
-    name: rhino-certificado
 - path: rhino-hpa-patch.yaml
   target:
     kind: HorizontalPodAutoscaler

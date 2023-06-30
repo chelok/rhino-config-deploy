@@ -4,7 +4,6 @@ resources:
   - rhino-deployment.yaml
   - rhino-service.yaml
   - rhino-ingress.yaml
-  - managed-cert.yaml
   - rhino-hpa.yaml
   #- rhino-secret.yaml
   #- rhino-configmap.yaml
