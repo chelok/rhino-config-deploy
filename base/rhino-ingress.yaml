@@ -4,11 +4,15 @@ metadata:
   name: rhino-ingress
   namespace: rhino-test
   annotations:
-    ingress.gcp.kubernetes.io/pre-shared-cert: rhino-certificado-prod
+    #ingress.gcp.kubernetes.io/pre-shared-cert: rhino-certificado-prod
     nginx.ingress.kubernetes.io/rewrite-target: /
-    networking.gke.io/managed-certificates: managed-cert
+    #networking.gke.io/managed-certificates: managed-cert
     kubernetes.io/ingress.class: "gce"
 spec:
+  tls:
+    - hosts:
+        - api-dev.rhinox.io
+      secretName: dev-rhino-secret
   rules:
   - host: api.rhinox.io
     http:
