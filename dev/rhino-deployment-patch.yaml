@@ -6,7 +6,7 @@ metadata:
   labels:
     app: rhino
 spec:
-  replicas: 1
+  replicas: 3
   template:
     spec:
       containers:

@@ -18,6 +18,10 @@ patches:
   target:
     kind: Service
     name: rhino-service
+- path: rhino-hpa-patch.yaml
+  target:
+    kind: HorizontalPodAutoscaler
+    name: rhino-deployment
 labels:
 - includeSelectors: true
   pairs:
