@@ -9,4 +9,3 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: rhino-deployment
-  targetCPUUtilizationPercentage: 80
