@@ -5,9 +5,9 @@ metadata:
   namespace: rhino-test
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    #kubernetes.io/ingress.class: "gce"
-    # seteamos balanceo por rate
+    kubernetes.io/ingress.class: "gce"
     #kubernetes.io/ingress.class: nginx
+    # seteamos balanceo por rate
     nginx.ingress.kubernetes.io/limit-rps: "5"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
